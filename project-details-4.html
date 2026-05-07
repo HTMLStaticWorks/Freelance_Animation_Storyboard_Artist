@@ -16,10 +16,10 @@
 </head>
 <body>
 
-    <header>
+        <header>
         <div class="nav-container">
             <a href="index.html" class="logo"><i class="fas fa-clapperboard me-2"></i>ARTIST_X</a>
-            
+
             <nav class="nav-links" id="nav-links">
                 <div class="nav-item">
                     <a href="index.html">Home ▾</a>
@@ -34,12 +34,21 @@
                 <div class="nav-item"><a href="blog.html">Blog</a></div>
                 <div class="nav-item"><a href="contact.html">Contact</a></div>
                 <div class="nav-item"><a href="dashboard.html">Dashboard</a></div>
+                <div class="nav-item mobile-only mt-4">
+                    <a href="signup.html" class="btn btn-primary w-100">Sign Up</a>
+                </div>
+                <div class="nav-item mobile-only mt-4">
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button class="theme-toggle rtl-toggle-btn">RTL</button>
+                        <button class="theme-toggle theme-toggle-btn">☀️</button>
+                    </div>
+                </div>
             </nav>
 
             <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle">☀️</button>
+                <button class="theme-toggle rtl-toggle-btn">RTL</button>
+                <button class="theme-toggle theme-toggle-btn">☀️</button>
                 <div class="auth-btns">
-                    <a href="login.html" class="btn btn-outline">Login</a>
                     <a href="signup.html" class="btn btn-primary">Sign Up</a>
                 </div>
                 <button class="mobile-toggle" id="mobile-toggle">
@@ -143,3 +152,6 @@
     <script src="assets/js/animations.js"></script>
 </body>
 </html>
+
+
+
