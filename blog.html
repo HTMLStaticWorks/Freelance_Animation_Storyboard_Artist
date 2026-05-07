@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Storyboard Artist</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-clapperboard me-2"></i>ARTIST_X</a>
+
+            <nav class="nav-links" id="nav-links">
+                <div class="nav-item">
+                    <a href="#">Home ▾</a>
+                    <div class="dropdown">
+                        <a href="index.html">Style 1</a>
+                        <a href="home-2.html">Style 2</a>
+                    </div>
+                </div>
+                <div class="nav-item"><a href="portfolio.html">Portfolio</a></div>
+                <div class="nav-item"><a href="sequences.html">Sequences</a></div>
+                <div class="nav-item"><a href="characters.html">Characters</a></div>
+                <div class="nav-item"><a href="blog.html">Blog</a></div>
+                <div class="nav-item"><a href="contact.html">Contact</a></div>
+                <div class="nav-item"><a href="dashboard.html">Dashboard</a></div>
+                <div class="nav-item mobile-only mt-4">
+                    <a href="signup.html" class="btn btn-primary w-100">Sign Up</a>
+                </div>
+                <div class="nav-item mobile-only mt-4">
+                    <div class="d-flex gap-3 justify-content-center">
+                        <button class="theme-toggle rtl-toggle-btn">RTL</button>
+                        <button class="theme-toggle theme-toggle-btn">☀️</button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="nav-right">
+                <button class="theme-toggle rtl-toggle-btn">RTL</button>
+                <button class="theme-toggle theme-toggle-btn">☀️</button>
+                <div class="auth-btns">
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding-top: 8rem;">
+        <section class="text-center">
+            <h1 class="mb-5">INSIGHTS &<br>PROCESS</h1>
+            <div class="row g-5">
+                <!-- Blog Item 1 -->
+                <div class="col-md-4">
+                    <article class="reveal">
+                        <a href="blog-details.html">
+                            <div class="blog-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop"
+                                    alt="Blog">
+                            </div>
+                            <span class="text-accent small font-monospace">PROCESS / MAY 2024</span>
+                            <h2 class="h4 mt-2">Mastering High-Octane Action Sequences</h2>
+                            <p class="text-muted mt-3 small">How to maintain clarity while pushing the boundaries of
+                                movement and speed in your storyboards.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right ms-2"></i></span>
+                        </a>
+                    </article>
+                </div>
+                <!-- Blog Item 2 -->
+                <div class="col-md-4">
+                    <article class="reveal">
+                        <a href="blog-details-2.html">
+                            <div class="blog-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+                                    alt="Blog">
+                            </div>
+                            <span class="text-accent small font-monospace">TUTORIAL / APRIL 2024</span>
+                            <h2 class="h4 mt-2">Emotional Beats in Character Acting</h2>
+                            <p class="text-muted mt-3 small">Focusing on micro-expressions to convey depth without a
+                                single word of dialogue.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right ms-2"></i></span>
+                        </a>
+                    </article>
+                </div>
+                <!-- Blog Item 3 -->
+                <div class="col-md-4">
+                    <article class="reveal">
+                        <a href="blog-details-3.html">
+                            <div class="blog-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop"
+                                    alt="Blog">
+                            </div>
+                            <span class="text-accent small font-monospace">INDUSTRY / MARCH 2024</span>
+                            <h2 class="h4 mt-2">Transitioning from 2D to 3D Storyboarding</h2>
+                            <p class="text-muted mt-3 small">Using Blender Grease Pencil to speed up your workflow and
+                                provide more technical depth.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right ms-2"></i></span>
+                        </a>
+                    </article>
+                </div>
+                <!-- Blog Item 4 -->
+                <div class="col-md-4">
+                    <article class="reveal">
+                        <a href="blog-details-4.html">
+                            <div class="blog-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop"
+                                    alt="Blog">
+                            </div>
+                            <span class="text-accent small font-monospace">TOOLS / FEB 2024</span>
+                            <h2 class="h4 mt-2">Why Storyboard Pro is Still Industry Standard</h2>
+                            <p class="text-muted mt-3 small">An in-depth look at the features that make Toon Boom's
+                                software the go-to for professional artists.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right ms-2"></i></span>
+                        </a>
+                    </article>
+                </div>
+                <!-- Blog Item 5 -->
+                <div class="col-md-4">
+                    <article class="reveal">
+                        <a href="blog-details-5.html">
+                            <div class="blog-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?q=80&w=800&auto=format&fit=crop"
+                                    alt="Blog">
+                            </div>
+                            <span class="text-accent small font-monospace">THEORY / JAN 2024</span>
+                            <h2 class="h4 mt-2">The Rule of Thirds in Action Staging</h2>
+                            <p class="text-muted mt-3 small">How to use classic composition rules to make your action
+                                beats more readable and impactful.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right ms-2"></i></span>
+                        </a>
+                    </article>
+                </div>
+                <!-- Blog Item 6 -->
+                <div class="col-md-4">
+                    <article class="reveal">
+                        <a href="blog-details-6.html">
+                            <div class="blog-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop"
+                                    alt="Blog">
+                            </div>
+                            <span class="text-accent small font-monospace">CAREER / DEC 2023</span>
+                            <h2 class="h4 mt-2">Freelancing for Global Animation Studios</h2>
+                            <p class="text-muted mt-3 small">Tips on building a portfolio that catches the eye of
+                                recruiters at Netflix, Disney, and beyond.</p>
+                            <span class="read-more">Read More <i class="fas fa-arrow-right ms-2"></i></span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 class="logo"><i class="fas fa-clapperboard me-2"></i>ARTIST_X</h4>
+                <p>Bringing stories to life through cinematic sequences and expressive characters. Available for
+                    freelance storyboard opportunities.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Portfolio</h4>
+                <ul>
+                    <li><a href="sequences.html">Sequences</a></li>
+                    <li><a href="characters.html">Characters</a></li>
+                    <li><a href="portfolio.html">Gallery</a></li>
+                    <li><a href="about.html">Artist Bio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Animatics</a></li>
+                    <li><a href="#">Visual Storytelling</a></li>
+                    <li><a href="#">Concept Layouts</a></li>
+                    <li><a href="#">Action Blocking</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Ready to start your next project?</p>
+                <a href="mailto:studio@artistx.com" class="text-accent h5 d-block mt-2">studio@artistx.com</a>
+                <p class="small mt-4">Based in Vancouver, BC<br>Available Worldwide</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Artist_X. All Rights Reserved.</p>
+            <p>Designed for Cinematic Excellence</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/rtl-toggle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+
+</html>

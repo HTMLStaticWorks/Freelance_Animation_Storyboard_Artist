@@ -1,0 +1,11 @@
+[data-theme="dark"] {
+    --primary: #F9FAFB;
+    --accent: #FBBF24;
+    --secondary: #94A3B8;
+    --bg-color: #020617;
+    --surface: #0B0F19;
+    --text-main: #F9FAFB;
+    --text-muted: #94A3B8;
+    --border-color: #1E293B;
+    --nav-bg: rgba(2, 6, 23, 0.8);
+}

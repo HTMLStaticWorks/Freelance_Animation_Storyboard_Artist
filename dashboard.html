@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Dashboard | ARTIST_X</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <style>
+        :root {
+            --sidebar-width: 280px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .dashboard-sidebar {
+            width: var(--sidebar-width);
+            background: var(--surface);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            z-index: 1001;
+        }
+
+        .sidebar-nav {
+            margin-top: 3rem;
+            flex-grow: 1;
+        }
+
+        .nav-link-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-link-item:hover, .nav-link-item.active {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .dashboard-main {
+            margin-left: var(--sidebar-width);
+            flex-grow: 1;
+            padding: 3rem;
+            max-width: 1400px;
+            min-width: 0; /* Prevents flex child from forcing horizontal overflow */
+            width: calc(100% - var(--sidebar-width));
+            overflow-x: hidden;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            height: 100%;
+        }
+
+        .upload-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--accent);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .thumb-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .thumb-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .thumb-item:hover .thumb-overlay {
+            opacity: 1;
+        }
+
+        .revision-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+
+        .revision-table tr {
+            background: var(--surface);
+        }
+
+        .revision-table td {
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .revision-table td:first-child { border-left: 1px solid var(--border-color); border-radius: 8px 0 0 8px; }
+        .revision-table td:last-child { border-right: 1px solid var(--border-color); border-radius: 0 8px 8px 0; }
+
+        .revision-table th, .revision-table td {
+            white-space: nowrap;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .status-pending { background: rgba(245, 158, 11, 0.2); color: var(--accent); }
+        .status-completed { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+
+        .btn-logout {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-logout:hover {
+            background: #ef4444;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .dashboard-sidebar {
+                transform: translateX(-100%);
+                transition: var(--transition);
+            }
+            .dashboard-sidebar.active {
+                transform: translateX(0);
+            }
+            .dashboard-main {
+                margin-left: 0;
+                padding: 1.5rem;
+                width: 100%;
+                max-width: 100vw;
+            }
+        }
+    </style>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+</head>
+
+<body>
+
+    <aside class="dashboard-sidebar" id="sidebar">
+        <a href="index.html" class="logo"><i class="fas fa-clapperboard me-2"></i>ARTIST_X</a>
+        
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-link-item active">
+                <i class="fas fa-th-large"></i> Overview
+            </a>
+            <a href="#" class="nav-link-item">
+                <i class="fas fa-file-alt"></i> Scripts
+            </a>
+            <a href="#" class="nav-link-item">
+                <i class="fas fa-images"></i> Thumbnail Review
+            </a>
+            <a href="#" class="nav-link-item">
+                <i class="fas fa-history"></i> Revision Tracker
+            </a>
+            <a href="#" class="nav-link-item">
+                <i class="fas fa-download"></i> Production Assets
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="d-flex gap-2 mb-4">
+                <button id="rtl-toggle" class="theme-toggle w-100">RTL</button>
+                <button id="theme-toggle" class="theme-toggle w-100">☀️</button>
+            </div>
+            
+            <div class="user-profile mb-4 d-flex align-items-center gap-3 p-2">
+                <div class="avatar bg-accent rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; color: #000; font-weight: bold; flex-shrink: 0;">
+                    PS
+                </div>
+                <div class="overflow-hidden">
+                    <p class="small mb-0 fw-bold text-truncate">Pixel Motion Studio</p>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">Pro Plan Member</p>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn btn-logout w-100 d-flex align-items-center justify-content-center gap-2">
+                <i class="fas fa-sign-out-alt"></i> Sign Out
+            </a>
+        </div>
+    </aside>
+
+    <main class="dashboard-main">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-start mb-4 mb-md-5 dashboard-header flex-nowrap gap-3">
+            <div style="min-width: 0;">
+                <h1 class="h4 fw-bold mb-1 text-truncate">PROJECT: "NEON HEIST"</h1>
+                <p class="text-muted mb-0 small text-truncate">Production Phase: Act 2 Sequencing</p>
+            </div>
+            <button class="btn btn-outline d-lg-none flex-shrink-0" onclick="document.getElementById('sidebar').classList.toggle('active')">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <p class="small text-muted mb-2">Approved Panels</p>
+                    <h2 class="h4 mb-0">142 / 185</h2>
+                    <div class="progress mt-3" style="height: 4px; background: rgba(255,255,255,0.1);">
+                        <div class="progress-bar bg-accent" style="width: 76%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <p class="small text-muted mb-2">Pending Revisions</p>
+                    <h2 class="h4 mb-0">12</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <p class="small text-muted mb-2">Active Scripts</p>
+                    <h2 class="h4 mb-0">3</h2>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <p class="small text-muted mb-2">Next Milestone</p>
+                    <h2 class="h4 mb-0">May 15</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Features -->
+        <div class="row g-4">
+            <!-- Script Upload -->
+            <div class="col-lg-6">
+                <div class="stat-card h-100">
+                    <h5 class="mb-4">Script Management</h5>
+                    <div class="upload-zone mb-4">
+                        <i class="fas fa-cloud-upload-alt h2 text-accent mb-3 d-block"></i>
+                        <p class="mb-1">Drag & Drop Production Scripts</p>
+                        <p class="small text-muted">Supports PDF, Final Draft, .doc</p>
+                    </div>
+                    <div class="active-files">
+                        <div class="d-flex align-items-center justify-content-between p-3 border rounded mb-2">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fas fa-file-pdf text-danger"></i>
+                                <div>
+                                    <p class="small mb-0">Scene_42_Action_V4.pdf</p>
+                                    <span class="text-muted" style="font-size: 0.7rem;">Uploaded 2h ago</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline"><i class="fas fa-eye"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thumbnail Review -->
+            <div class="col-lg-6">
+                <div class="stat-card h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">Thumbnail Review</h5>
+                        <a href="#" class="small text-accent">View All Sequences</a>
+                    </div>
+                    <div class="thumbnail-grid">
+                        <div class="thumb-item">
+                            <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&q=80&w=400" alt="Panel 1">
+                            <div class="thumb-overlay">
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-sm btn-success w-100"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-sm btn-danger w-100"><i class="fas fa-undo"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="thumb-item">
+                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=400" alt="Panel 2">
+                            <div class="thumb-overlay">
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-sm btn-success w-100"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-sm btn-danger w-100"><i class="fas fa-undo"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="thumb-item">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=400" alt="Panel 3">
+                            <div class="thumb-overlay">
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-sm btn-success w-100"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-sm btn-danger w-100"><i class="fas fa-undo"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="thumb-item">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400" alt="Panel 4">
+                            <div class="thumb-overlay">
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-sm btn-success w-100"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-sm btn-danger w-100"><i class="fas fa-undo"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revision Tracker -->
+            <div class="col-12">
+                <div class="stat-card">
+                    <h5 class="mb-4">Recent Revision Requests</h5>
+                    <div class="table-responsive">
+                        <table class="revision-table">
+                            <thead>
+                                <tr class="bg-transparent">
+                                    <th class="small text-muted px-3">PANEL ID</th>
+                                    <th class="small text-muted px-3">SEQUENCE</th>
+                                    <th class="small text-muted px-3">REVISION NOTE</th>
+                                    <th class="small text-muted px-3">STATUS</th>
+                                    <th class="small text-muted px-3">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="px-3">#NH-42-08</td>
+                                    <td class="px-3">Rooftop Chase</td>
+                                    <td class="px-3 text-wrap" style="min-width: 200px;">Adjust camera angle to lower perspective</td>
+                                    <td class="px-3"><span class="status-badge status-pending">In Progress</span></td>
+                                    <td class="px-3"><button class="btn btn-sm btn-outline">Details</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3">#NH-42-12</td>
+                                    <td class="px-3">Rooftop Chase</td>
+                                    <td class="px-3 text-wrap" style="min-width: 200px;">More impact on the landing pose</td>
+                                    <td class="px-3"><span class="status-badge status-completed">Completed</span></td>
+                                    <td class="px-3"><button class="btn btn-sm btn-outline">Details</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animatic Downloads -->
+            <div class="col-12">
+                <div class="stat-card" style="border-left: 4px solid var(--accent);">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h5 class="mb-2">Production Animatic Ready</h5>
+                            <p class="text-muted small mb-0">Sequence: Act 2 - Scene 4 (Rough Animatic v2). High-resolution MP4 with temporary SFX.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-download me-2"></i> Download Assets
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/rtl-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+
+</html>

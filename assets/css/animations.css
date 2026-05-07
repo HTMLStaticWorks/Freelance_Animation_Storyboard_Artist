@@ -1,0 +1,21 @@
+.reveal {
+    /* Styles handled by GSAP to prevent hidden content on JS failure */
+    visibility: visible;
+}
+
+.hover-zoom {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+@keyframes frameReveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+.frame-reveal {
+    animation: frameReveal 1s forwards cubic-bezier(0.77, 0, 0.175, 1);
+}
