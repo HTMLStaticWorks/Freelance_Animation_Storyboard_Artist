@@ -402,6 +402,11 @@ section {
 
 .sequence-info {
     padding: 1.5rem;
+    text-align: center;
+}
+
+.sequence-info .d-flex {
+    justify-content: center;
 }
 
 /* Grid Layouts */
@@ -746,6 +751,21 @@ footer::before {
     transform: translateX(8px);
 }
 
+.blog-main-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .blog-main-img {
+        height: 300px;
+    }
+}
+
 /* Map Styling */
 .map-container {
     width: 100%;
@@ -758,6 +778,16 @@ footer::before {
 .map-container iframe {
     display: block;
     width: 100%;
+}
+
+.login-options {
+    gap: 0.5rem;
+}
+
+.login-options .form-check-label,
+.login-options a {
+    font-size: 0.75rem !important;
+    white-space: nowrap;
 }
 
 /* Responsiveness */
@@ -837,8 +867,10 @@ footer::before {
     }
 
     .hero {
-        align-items: flex-start !important;
+        align-items: center !important;
         padding-top: 8rem !important;
+        padding-bottom: 4rem !important;
+        min-height: auto !important;
     }
 
     .display-1, .display-2 {
@@ -1046,12 +1078,24 @@ html, body {
 
 /* Auth Page Styles */
 .auth-nav {
-    position: fixed;
+    position: absolute;
     top: 2rem;
     right: 2rem;
     z-index: 1000;
     display: flex;
     gap: 1rem;
+    padding: 0.5rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+}
+
+@media (max-width: 576px) {
+    .auth-nav {
+        top: 1rem;
+        right: 1rem;
+        gap: 0.5rem;
+    }
 }
 
 .auth-page .btn-outline {
@@ -1079,6 +1123,15 @@ html, body {
 
 /* Blog Details Mobile Alignment */
 @media (max-width: 576px) {
+    .auth-card {
+        padding: 1.5rem !important;
+    }
+    
+    .login-options .form-check-label,
+    .login-options a {
+        font-size: 0.65rem !important;
+    }
+
     .blog-details-footer {
         flex-direction: column !important;
         align-items: flex-start !important;

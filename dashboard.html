@@ -107,6 +107,13 @@
             border: 1px solid var(--border-color);
         }
 
+        .thumb-item img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
         .thumb-overlay {
             position: absolute;
             bottom: 0;
@@ -224,6 +231,18 @@
                 width: 100%;
                 justify-content: space-between;
             }
+        }
+
+        /* Asset Item Fixes */
+        .asset-info {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .asset-info p {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
     </style>
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -563,7 +582,7 @@
         <!-- Section: Production Assets -->
         <div id="assets-section" class="dashboard-content-section d-none">
             <div class="row g-4">
-                <div class="col-md-6">
+                <div class="col-xl-6">
                     <div class="stat-card h-100">
                         <h5 class="mb-4">Animatics</h5>
                         <div class="d-grid gap-3">
@@ -590,7 +609,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-xl-6">
                     <div class="stat-card h-100">
                         <h5 class="mb-4">Character Sheets & Props</h5>
                         <div class="d-grid gap-3">
