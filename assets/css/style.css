@@ -697,6 +697,26 @@ footer::before {
     background-color: var(--surface) !important;
 }
 
+.password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: var(--transition);
+    z-index: 10;
+    font-size: 0.9rem;
+}
+
+.toggle-password:hover {
+    color: var(--accent);
+}
+
 .form-control::placeholder {
     color: var(--text-muted);
     opacity: 0.6;
