@@ -244,9 +244,27 @@
             overflow: hidden;
             white-space: nowrap;
         }
+        .user-profile {
+            width: 42px;
+            height: 42px;
+            background: var(--surface);
+            border: 1px solid var(--border-color) !important;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .user-profile {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
         .user-profile:hover {
             border-color: var(--accent) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
         }
     </style>
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
@@ -298,8 +316,8 @@
                     <button class="theme-toggle theme-toggle-btn">☀️</button>
                 </div>
 
-                <div class="user-profile d-flex align-items-center justify-content-center border rounded-circle" style="width: 42px; height: 42px; background: var(--surface); border-color: var(--border-color) !important; transition: var(--transition); cursor: pointer;">
-                    <div class="avatar bg-accent rounded-circle d-flex align-items-center justify-content-center" style="width: 34px; height: 34px; color: #000; font-weight: bold; flex-shrink: 0; font-size: 0.8rem;">
+                <div class="user-profile rounded-circle">
+                    <div class="avatar bg-accent rounded-circle d-flex align-items-center justify-content-center" style="width: 34px; height: 34px; color: #000; font-weight: 800; flex-shrink: 0; font-size: 0.85rem; letter-spacing: -0.5px;">
                         PS
                     </div>
                 </div>

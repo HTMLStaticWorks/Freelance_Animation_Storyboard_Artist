@@ -19,6 +19,10 @@
     background-color: var(--surface) !important;
 }
 
+.bg-accent {
+    background-color: var(--accent) !important;
+}
+
 .bg-dark {
     background-color: #000 !important;
 }
