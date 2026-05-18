@@ -49,19 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
         ScrollTrigger.refresh();
     });
 
-    // Sequence horizontal scroll animation
-    const sequenceScroll = document.querySelector('.horizontal-scroll');
-    if (sequenceScroll) {
-        gsap.from('.sequence-card', {
-            scrollTrigger: {
-                trigger: '.horizontal-scroll',
-                start: 'top 80%'
-            },
-            x: 100,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: 'power2.out'
-        });
-    }
 });
