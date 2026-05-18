@@ -237,17 +237,96 @@
             </div>
         </section>
 
-        <!-- Sequence Spotlight (Full Width) -->
-        <section class="p-0 overflow-hidden reveal">
-            <div class="position-relative" style="height: 60vh;">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop"
-                    class="w-100 h-100 object-fit-cover" alt="Sequence Spotlight">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-                    style="background: rgba(0,0,0,0.4); backdrop-filter: blur(2px);">
-                    <div class="text-center text-white">
-                        <span class="small tracking-widest text-accent d-block mb-3">FEATURED BREAKDOWN</span>
-                        <h2 class="display-2 fw-bold">NEON PURSUIT: ACT III</h2>
-                        <a href="sequence-details.html" class="btn btn-outline-light mt-4 px-5">View Full Sequence</a>
+        <!-- Sequence Spotlight / Featured Breakdown -->
+        <section class="reveal border-top border-bottom py-6" style="background: var(--surface-subtle, rgba(0,0,0,0.1));">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <!-- Left Column: Visual Showcase -->
+                    <div class="col-lg-6">
+                        <div class="featured-breakdown-card border overflow-hidden position-relative">
+                            <div class="breakdown-badge">
+                                <span class="badge bg-accent text-dark"><i class="fas fa-film me-1"></i> ACT III KEYFRAME</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"
+                                class="w-100 h-100 object-fit-cover breakdown-main-img" alt="Neon Pursuit Sequence Breakdown" style="min-height: 450px;">
+                            <div class="breakdown-overlay-content p-4 d-flex align-items-end">
+                                <div class="w-100">
+                                    <div class="glass-specs-card p-3">
+                                        <div class="d-flex justify-content-between align-items-center text-white">
+                                            <div>
+                                                <p class="small text-accent mb-0 font-monospace">CAMERA FR-108</p>
+                                                <h6 class="mb-0">Extreme Angle Low-Shot Tilt</h6>
+                                            </div>
+                                            <span class="badge bg-blur">24fps</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Structured Specs & Details -->
+                    <div class="col-lg-6">
+                        <div class="ps-lg-4">
+                            <span class="small tracking-widest text-accent d-inline-block mb-2 font-monospace">FEATURED SEQUENCE BREAKDOWN</span>
+                            <h2 class="display-5 fw-bold mb-3">NEON PURSUIT: ACT III</h2>
+                            <p class="text-muted mb-4 lead">
+                                A high-octane sci-fi chase sequence choreographing a protagonist escaping cybernetic forces across dystopian rooftops. Engineered with dynamic camera pacing and fluid speed-line blockings.
+                            </p>
+                            
+                            <!-- Key Technical Grid -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-sm-6">
+                                    <div class="p-3 border bg-surface rounded">
+                                        <div class="text-accent small font-monospace mb-1">CAMERA WORK</div>
+                                        <div class="fw-semibold">Dynamic Crane & Pitch Tilts</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-3 border bg-surface rounded">
+                                        <div class="text-accent small font-monospace mb-1">OPTICS & LENS</div>
+                                        <div class="fw-semibold">24mm Anamorphic Wide</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-3 border bg-surface rounded">
+                                        <div class="text-accent small font-monospace mb-1">TIMING / LENGTH</div>
+                                        <div class="fw-semibold">3.2 Seconds (82 Frames)</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="p-3 border bg-surface rounded">
+                                        <div class="text-accent small font-monospace mb-1">CHOREOGRAPHY</div>
+                                        <div class="fw-semibold">High-Speed Roof Parkour</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Narrative Pipeline Phases -->
+                            <div class="timeline-mini mb-4">
+                                <h6 class="small font-monospace text-muted mb-3 uppercase">PAGINATED CHRONOLOGY</h6>
+                                <div class="timeline-step d-flex gap-3 mb-3">
+                                    <div class="step-num font-monospace text-accent">01</div>
+                                    <div>
+                                        <strong class="text-main">The Establishing Rooftop blocking</strong>
+                                        <p class="small text-muted mb-0">Captures the extreme environment scale and protagonist orientation.</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-step d-flex gap-3 mb-3">
+                                    <div class="step-num font-monospace text-accent">02</div>
+                                    <div>
+                                        <strong class="text-main">High-Tension Leap Phase</strong>
+                                        <p class="small text-muted mb-0">Extreme vertical profile framing detailing height and kinetic velocity.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="d-flex flex-wrap gap-3">
+                                <a href="sequence-details.html" class="btn btn-primary px-4"><i class="fas fa-play me-2"></i>View Full Animatic</a>
+                                <a href="portfolio.html" class="btn btn-outline px-4"><i class="fas fa-images me-2"></i>Explore Panels</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
